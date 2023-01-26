@@ -24,9 +24,9 @@
       let map;
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 43.651070, lng: -79.347015 }; /* Setting location to Toronto for now */
-          zoom: 16;
-        })
+          center: { lat: 43.651070, lng: -79.347015 }, /* Setting location to Toronto for now */
+          zoom: 16,
+        });
       }
     </script>
   </head>
@@ -35,6 +35,8 @@
     <div class="container text"><h2>The Map</h2></div>
     <div class="container text"><p>Text</p></div>
     <div id="mapdiv"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" async></script>
+    <script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" defer>
+    </script>
   </body>
 </html>
