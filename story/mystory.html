@@ -4,7 +4,16 @@
     <title>Story Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
-      /* body, hN settings required */
+      body {
+        font-family: Helvetica, Arial, sans-serif; /* Several fonts listed for fallback. */
+      }
+      h1 {
+        padding: 1% 5%;
+        font-size: 40pt;
+      }
+      h2 {
+        font-size: 26pt;
+      }
       .container {
         display: grid;
         justify-items: center;
@@ -14,8 +23,7 @@
       .container.text {
         justify-items: start;
         align-items: start;
-        padding-left: 12%;
-        padding-right:12%;
+        padding: 0 12%;
       }
       #mapdiv {
         height: 50vw;
@@ -36,7 +44,7 @@
     <h1>Story Map Title</h1>
     <div class="container text"><h2>The Map</h2></div>
     <div class="container text"><p>Text</p></div>
-    <div id="mapdiv"></div>
+    <div class="container" id="mapdiv"></div>
     <script 
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" defer>
     </script>
