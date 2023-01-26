@@ -27,6 +27,7 @@
       }
       #mapdiv {
         height: 50vw;
+        padding: 20px;
       }
     </style>
     <script>
@@ -44,9 +45,11 @@
     <h1>Story Map Title</h1>
     <div class="container text"><h2>The Map</h2></div>
     <div class="container text"><p>Text</p></div>
-    <div class="container" id="mapdiv"></div>
-    <script 
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" defer>
-    </script>
+    <div class="container">
+      <div id="mapdiv"></div>
+      <script 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" defer>
+      </script>
+    </div>
   </body>
 </html>
