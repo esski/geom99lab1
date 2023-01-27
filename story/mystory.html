@@ -7,9 +7,15 @@
       body {
         font-family: Helvetica, Arial, sans-serif; /* Several fonts listed for fallback. */
       }
+      header {
+        display: flex;
+        padding-top: 20px;
+        align-items: left;
+      }
       h1 {
         padding: 1% 8%;
         font-size: 40pt;
+        width: fit-content;
       }
       h2 {
         font-size: 26pt;
@@ -41,6 +47,11 @@
         height: 50vw;
         width: 80%;
       }
+      @media screen and (max-width: 775px){
+        header {
+          align-items: center;
+        }
+      }
     </style>
     <script>
       let map;
@@ -48,12 +59,20 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById("mapdiv"), {
           center: { lat: 43.658497, lng: -79.413695 },
-          zoom: 12,
+          // Reference: https://github.com/googlemaps/js-samples/tree/main/samples/interaction-restricted
+          // Implementing map bounds/limits to the view
+          restriction: {
+            latLngBounds: {
+              north: 43.8,
+              south: 43.5,
+              east: -79.1,
+              west: -79.7
+            },
+          },
+          zoom: 13,
         });
-        // Source: https://github.com/googlemaps/js-samples/tree/main/samples/marker-accessibility
-        // Set LatLng and title text for the markers. The first marker (Boynton Pass)
-        // receives the initial focus when tab is pressed. Use arrow keys to
-        // move between markers; press tab again to cycle through the map controls.
+        // Reference: https://github.com/googlemaps/js-samples/tree/main/samples/marker-accessibility
+        // Implementing accessible markers
         const yarnStores = [
           [{ lat: 43.662620, lng: -79.423650 }, "EweKnit & Craft"],
           [{ lat: 43.649720, lng: -79.427440 }, "The Knit Café"],
@@ -63,10 +82,10 @@
           [{ lat: 43.6804995, lng: -79.4174207 }, "Knit-O-Matic"],
         ];
 
-        // Create an info window to share between markers.
+        // Create information popup window for details at each location
         const infoWindow = new google.maps.InfoWindow();
 
-        // Create the markers.
+        // Creating the markers for each location, marked with the store name as title
         yarnStores.forEach(([position, title], i) => {
           const marker = new google.maps.Marker({
             position,
@@ -87,8 +106,9 @@
     </script>
   </head>
   <body>
-    <header><h1>Story Map Title</h1></header>
-    <div class="container text"><h2>The Map</h2></div>
+    <header><h1>Toronto Yarn Stores</h1><img src="redyarn120by114.png" alt="Ball of Red Yarn" width="120" height="114">
+    </header>
+    <div class="container text"><h2>Yarn Stores in Central Toronto (with Online Stores)</h2></div>
     <div class="container text"><p>Text</p></div>
     <div class="container map">
       <div id="mapdiv">
