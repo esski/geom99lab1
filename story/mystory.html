@@ -10,23 +10,22 @@
       header {
         display: flex;
         padding-top: 20px;
-        align-items: left;
+        align-items: center;
       }
       h1 {
         padding: 1% 8%;
         font-size: 40pt;
-        width: fit-content;
       }
       h2 {
-        font-size: 24pt;
+        font-size: 22pt;
         color: #566471;
         text-align: center;
       }
       h3 {
-        font-size: 24pt;
+        font-size: 22pt;
       }
       p {
-        font-size: 14px;
+        font-size: 12pt;
       }
       #footer {
         position: relative;
@@ -40,9 +39,8 @@
         display: grid;
         justify-items: center;
         align-items: center;
-        gap: 1em;
       }
-      .container.text {
+      .container.heading {
         justify-items: start;
         align-items: start;
         padding: 0 10%;
@@ -51,13 +49,21 @@
         margin: 20px 0 30px 0;
         padding-bottom: 2.5rem;
       }
+      .textbox {
+        margin: 0 40px;
+        padding: 0 10%;
+      }
       #mapdiv {
         height: 50vw;
         width: 80%;
+        padding: 20px;
       }
       @media screen and (max-width: 775px){
-        header {
-          align-items: center;
+        h1 {
+          font-size: 32pt;
+        }
+        h2, h3 {
+          font-size: 18pt;
         }
       }
     </style>
@@ -71,10 +77,10 @@
           // Implementing map bounds/limits to the view
           restriction: {
             latLngBounds: {
-              north: 43.8,
-              south: 43.5,
-              east: -79.1,
-              west: -79.7
+              north: 43.7,
+              south: 43.6,
+              east: -79.3,
+              west: -79.5
             },
           },
           zoom: 13,
@@ -114,22 +120,20 @@
           });
         });
         // Reference: https://developers.google.com/maps/documentation/javascript/examples/event-simple 
-        // Re-center 30 seconds after map has changed
+        // To re-center 30 seconds after map has changed
         map.addListener("center_changed", () => {
           window.setTimeout(() => {
-            map.panTo(map.center);
-          }, 3000);  
+            map.panTo({ lat: 43.661965, lng: -79.414651 });
+          }, 30000);  
         });
-        
+
       }
     </script>
   </head>
   <body>
     <header><h1>Toronto Yarn Stores</h1><img src="redyarn120by114.png" alt="Ball of Red Yarn" width="120" height="114">
     </header>
-    <div class="container text"><h2>A Collection of Yarn Stores in Toronto around Yonge St. (with Online Stores)</h2></div>
-    <div class="container text"><h3>1. EweKnit & Craft</h3></div>
-    <div class="container text"><p>832 Bloor St W, Toronto, ON M6G 1M2, Canada</p></div>
+    <div class="container heading"><h2>A Collection of Yarn Stores in Toronto (with Online Stores)</h2></div>
     <div class="container map">
       <div id="mapdiv">
       <script 
@@ -137,6 +141,36 @@
       </script>
       </div>
     </div>
+    <div class="container heading"><h3>1. EweKnit & Craft</h3></div>
+    <div class="textbox"><p class="address">832 Bloor St W, Toronto, ON M6G 1M2, Canada</p></div>
+    <div class="textbox"><p>A yarn and craft store located on Bloor Street, close to Ossington Station. Store open all days of the week!</p></div>
+    <div class="textbox"><a href="https://eweknit.co/">Click here for the link to their online store!</a></div>
+
+    <div class="container heading"><h3>2. The Knit Café</h3></div>
+    <div class="textbox"><p class="address">1350 Dundas St W, Toronto, ON M6J 1Y2, Canada</p></div>
+    <div class="textbox"><p>A small shop on Dundas Street right of Dufferin Street. The furthest out west in this selection. Store closed on Mondays!</p></div>
+    <div class="textbox"><a href="https://www.theknitcafetoronto.com/">Click here for the link to their online store!</a></div>
+    
+    <div class="container heading"><h3>3. Romni Wools Ltd</h3></div>
+    <div class="textbox"><p class="address">658 Queen St W, Toronto, ON M6J 1E5, Canada</p></div>
+    <div class="textbox"><p>The store with likely the largest selection of yarn. Near Queen and Bathurst. Store closed on Sundays!</p></div>
+    <div class="textbox"><a href="https://www.romniwools.ca/">Click here for the link to their online store!</a></div>
+    
+    <div class="container heading"><h3>4. Good Grief Yarn & Provisions</h3></div>
+    <div class="textbox"><p class="address">829 Dundas St W, Toronto, ON M6J 1V4, Canada</p></div>
+    <div class="textbox"><p>Newly opened (December 3, 2022) on Dundas Street near Bathurst. Store closed on Mondays!</p></div>
+    <div class="textbox"><a href="https://goodgriefyarn.com/">Click here for the link to their online store!</a></div>
+    
+    <div class="container heading"><h3>5. Yarns Untangled</h3></div>
+    <div class="textbox"><p class="address">90 Nassau St, Toronto, ON M5T 1M7, Canada</p></div>
+    <div class="textbox"><p>A yarn store right by Kensington Market. Store open all days of the week!</p></div>
+    <div class="textbox"><a href="https://yarnsuntangled.com/">Click here for the link to their online store!</a></div>
+    
+    <div class="container heading"><h3>6. Knit-O-Matic</h3></div>
+    <div class="textbox"><p class="address">1382 Bathurst St, Toronto, ON M5R 3J1, Canada</p></div>
+    <div class="textbox"><p>Knitting shop furthest north in this selection, near St Clair and Bathurst. Store open all days of the week!</p></div>
+    <div class="textbox"><a href="https://knitomatic.com/">Click here for the link to their online store!</a></div>
+
     <footer id="footer"><p>Test for footer</p></footer>
   </body>
 </html>
