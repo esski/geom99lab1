@@ -133,7 +133,7 @@
             infoWindow.setContent(marker.getTitle());
             infoWindow.open(marker.getMap(), marker);
             // Reference: https://developers.google.com/maps/documentation/javascript/examples/event-simple 
-            // Zoom to marker when it is clicked
+            // Zoom and center to marker when it is clicked
             map.setZoom(15);
             map.setCenter(marker.getPosition());
           });
@@ -161,7 +161,7 @@
       </script>
       </div>
       <div class="note"><p>*For accessibility features, press tab until one of the markers are highlighted, then use the arrow keys to jump through the markers.*</p></div>
-      <div class="note"><p>Note: Selecting a marker will zoom into the area. The marker must be visible to select it. Zoom out as necessary to jump to other markers. The map re-centers after 2 min of activity.</p></div>
+      <div class="note"><p>Note: Selecting a marker will zoom into the area. The marker must be visible to select it. Zoom out as necessary to jump to other markers. The map re-centers after 2 minutes of activity.</p></div>
     </div>
     <div class="heading"><h3>1. EweKnit & Craft</h3></div>
     <div class="textbox"><p class="emphasize">832 Bloor St W, Toronto, ON M6G 1M2, Canada</p></div>
