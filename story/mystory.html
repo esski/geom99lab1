@@ -132,11 +132,11 @@
           });
         });
         // Reference: https://developers.google.com/maps/documentation/javascript/examples/event-simple 
-        // To re-center 30 seconds after map has changed (in reality, less than 30 sec)
+        // To re-center 2 minutes after center of map has changed (in reality, less time since counting from initial activity)
         map.addListener("center_changed", () => {
           window.setTimeout(() => {
             map.panTo({ lat: 43.661965, lng: -79.414651 });
-          }, 30000);  
+          }, 120000);  
         });
 
       }
@@ -154,7 +154,7 @@
       </script>
       </div>
       <div class="note"><p>*For accessibility features, press tab until one of the markers are highlighted, then use the arrow keys to jump through the markers.*</p></div>
-      <div class="note"><p>Note: Selecting a marker will zoom into the area. The marker must be visible to select it. Zoom out as necessary to jump to other markers. The map re-centers within 30 seconds of in-activity.</p></div>
+      <div class="note"><p>Note: Selecting a marker will zoom into the area. The marker must be visible to select it. Zoom out as necessary to jump to other markers. The map re-centers after 2 min of activity.</p></div>
     </div>
     <div class="heading"><h3>1. EweKnit & Craft</h3></div>
     <div class="textbox"><p class="emphasize">832 Bloor St W, Toronto, ON M6G 1M2, Canada</p></div>
