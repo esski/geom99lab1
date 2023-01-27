@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Story Map</title>
+    <title>Toronto Yarn Stores</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
       body {
@@ -58,7 +58,7 @@
       
       function initMap() {
         map = new google.maps.Map(document.getElementById("mapdiv"), {
-          center: { lat: 43.658497, lng: -79.413695 },
+          center: { lat: 43.661965, lng: -79.414651 },
           // Reference: https://github.com/googlemaps/js-samples/tree/main/samples/interaction-restricted
           // Implementing map bounds/limits to the view
           restriction: {
@@ -100,8 +100,19 @@
             infoWindow.close();
             infoWindow.setContent(marker.getTitle());
             infoWindow.open(marker.getMap(), marker);
+            // Zoom to marker
+            map.setZoom(15);
+            map.setCenter(marker.getPosition());
           });
         });
+        // Reference: https://developers.google.com/maps/documentation/javascript/examples/event-simple 
+        // Re-center 30 seconds after map has changed
+        map.addListener("center_changed", () => {
+          window.setTimeout(() => {
+            map.panTo(center);
+          }, 30000);  
+        });
+        
       }
     </script>
   </head>
